@@ -1,0 +1,6 @@
+{
+    "name": "today",
+    "version": "1.0.0",
+    "main": "./lib/server",
+    "license": "Apache-2.0"
+}
