@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  state = {counter : "0"}
+
+  incrementCounter = () => this.setState({counter:parseInt(this.state.counter)+1})
+
+  shouldComponentUpdate() {
+    console.log("Inside shouldComponent Update")
+    return true
+  }
+
+  getSnapshotBeforeUpdate(prevProps, prevState) {
+    console.log("Inside getSnapshotBeforeUpdate")
+    console.log("Prev counter is " + this.state.counter)
+    console.log("New counter is " + this.state.counter)
+    return prevState
+  }
+
+  componentDidUpdate() {
+    console.log("Inside componentDidUpdate")
+  }
+
+  render() {
+    console.log("Inside render")
+    return (
+      <div>
+        <button onClick={this.incrementCounter}>Click Me!</button>
+        {this.state.counter}
+      </div>
+    )
+  }
 }
 
 export default App;
