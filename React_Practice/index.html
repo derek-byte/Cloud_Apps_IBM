@@ -1,0 +1,22 @@
+<html>
+<!-- Load react API -->
+<script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+<!-- Load React DOM -->
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+<!-- Load Babel Compiler -->
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+<body>
+    <div id="comp1">   </div>
+
+    <script type="text/babel">
+
+        class Mycomp extends React.Component {
+            //override the render method
+            render() {
+                return <h1>This is my own component named {this.props.name}</h1>
+            }
+        }
+        ReactDOM.render(<Mycomp name="myBrandNewComp"/>, document.getElementById('comp1'))
+    </script>
+</body>
+</html>
